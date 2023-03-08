@@ -15,12 +15,13 @@ def create_contact(current_user_token):
     email = request.json['email']
     make = request.json['make']
     model = request.json['model']
+    year = request.json['year']
     color = request.json['color']
     user_token = current_user_token.token
 
     print(f'BIG TESTER: {current_user_token.token}')
 
-    contact = Contact(name, email, make, model, color, user_token = user_token )
+    contact = Contact(name, email, make, model, year, color, user_token = user_token )
 
     db.session.add(contact)
     db.session.commit()

@@ -57,9 +57,10 @@ class Contact(db.Model):
     color = db.Column(db.String(20))
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
 
-    def __init__(self,name,make,model,year, color, user_token, id = ''):
+    def __init__(self,name,email,make,model,year, color, user_token, id = ''):
         self.id = self.set_id()
         self.name = name
+        self.email = email
         self.make = make
         self.model = model
         self.year = year
@@ -74,7 +75,7 @@ class Contact(db.Model):
 
 class ContactSchema(ma.Schema):
     class Meta:
-        fields = ['id', 'name', 'make', 'model', 'year', 'color']
+        fields = ['id', 'name', 'email', 'make', 'model', 'year', 'color']
 
 contact_schema = ContactSchema()
 contacts_schema = ContactSchema(many=True)       
