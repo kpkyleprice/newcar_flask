@@ -51,6 +51,7 @@ class User(db.Model, UserMixin):
 class Contact(db.Model):
     id = db.Column(db.String, primary_key = True)
     name = db.Column(db.String(150), nullable = False)
+    email = db.Column(db.String(50))
     make = db.Column(db.String(200))
     model = db.Column(db.String(20))
     year = db.Column(db.String(4))
